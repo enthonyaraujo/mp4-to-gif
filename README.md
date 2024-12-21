@@ -1,7 +1,6 @@
 # Converte arquivos MP4 para Gif
 
 Dependencias: 
-Python
-Abra um arquivo nos [Documentos Google](https://docs.google.com/document/).
-
+[Python](https://www.python.org/downloads/)
+[MoviePY](https://pypi.org/project/moviepy/) pip install moviepy
 
