@@ -13,9 +13,12 @@ if mp4_arquivo:
     if saida_dir:
         # Cria o caminho do arquivo
         gif_arquivo = os.path.join(saida_dir, "sem_nome.gif") 
-        # Converte de MP4 para GIF
         clip = VideoFileClip(mp4_arquivo)
-        clip.write_gif(gif_arquivo, fps=60) 
+        # Converte de MP4 para GIF
+        clip_resized = clip.resized(height=420) 
+        clip_trimmed = clip_resized.subclipped(0, 2) 
+        clip_trimmed.write_gif(gif_arquivo, fps=30)
+        #clip.write_gif(gif_arquivo, fps=60) 
         print(f"GIF salvo como: {gif_arquivo}")
     else:
         print("Nenhuma pasta foi selecionada.")
