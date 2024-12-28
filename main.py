@@ -3,10 +3,6 @@ import os
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from moviepy import VideoFileClip
 
-ffmpeg_path = os.path.join(os.path.dirname(__file__), "ffmpeg.exe")
-os.environ["FFMPEG_BINARY"] = ffmpeg_path
-
-
 def converter(*args):
     mp4_arquivo = askopenfilename(filetypes=[("mp4", "*.mp4")], title="Selecione o arquivo MP4")
     if mp4_arquivo:
@@ -27,7 +23,6 @@ def converter(*args):
             except Exception as e:
                 label.config(text="Erro ao salvar o GIF.", fg="red")
             
-                
         else:
             label.config(text=f"Nehuma pasta foi selecionada")
             
