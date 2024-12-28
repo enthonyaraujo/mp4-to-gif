@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-from PIL import ImageTk
 from moviepy import VideoFileClip
 
 
@@ -32,8 +31,6 @@ def converter(*args):
         print("Nenhum arquivo foi selecionado")
 
 window = tk.Tk() #criação da janela principal 
-icone_png = ImageTk.PhotoImage(file="icon.png") #adicionando icone
-window.iconphoto(True, icone_png)
 window.title("Converter MP4 para GIF") #titulo
 window.geometry("400x150")  # largura x altura
 
@@ -42,6 +39,5 @@ botao.pack()
 
 label = tk.Label(window, text="") #adicionando mensangem de salvemento do arquivo
 label.pack()
-
 
 window.mainloop()
