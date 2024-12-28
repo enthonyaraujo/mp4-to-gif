@@ -1,6 +1,10 @@
 import tkinter as tk
+import os
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from moviepy import VideoFileClip
+
+ffmpeg_path = os.path.join(os.path.dirname(__file__), "ffmpeg.exe")
+os.environ["FFMPEG_BINARY"] = ffmpeg_path
 
 
 def converter(*args):
@@ -19,23 +23,24 @@ def converter(*args):
                 clip_trimmed = clip_resized.subclipped(0, 5) 
                 clip_trimmed.write_gif(gif_arquivo, fps=15)
                 label.config(text=f"GIF salvo em:\n{gif_arquivo}", fg="green")
-                print(f"GIF salvo em: {gif_arquivo}")
+                
             except Exception as e:
                 label.config(text="Erro ao salvar o GIF.", fg="red")
-                print(f"Erro: {e}")
+            
+                
         else:
             label.config(text=f"Nehuma pasta foi selecionada")
-            print("Nenhuma pasta foi selecionada.")
+            
     else:
         label.config(text=f"Nenhum arquivo foi selecionado")
-        print("Nenhum arquivo foi selecionado")
+        
 
 window = tk.Tk() #criação da janela principal 
 window.title("Converter MP4 para GIF") #titulo
 window.geometry("400x150")  # largura x altura
 
-botao = tk.Button(window, text="Selecione o Arquivo MP4", command=converter)
-botao.pack()
+button = tk.Button(window, text="Selecione o Arquivo MP4", command=converter)
+button.pack()
 
 label = tk.Label(window, text="") #adicionando mensangem de salvemento do arquivo
 label.pack()
