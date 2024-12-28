@@ -1,4 +1,4 @@
-# Converte arquivos MP4 para Gif
+# Converte arquivos .mp4 para .gif
 
 Dependencias: 
 
